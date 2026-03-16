@@ -53,3 +53,11 @@ const logo = document.querySelector(".logo");
 logo.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function () {
+  navLinks.classList.toggle("active");
+});
+7;
