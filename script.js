@@ -52,17 +52,25 @@ document
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 const navItems = document.querySelectorAll(".nav-links a");
-
-/* open / close menu */
+const menuIcon = menuToggle.querySelector("i");
 
 menuToggle.addEventListener("click", () => {
   navLinks.classList.toggle("active");
-});
 
-/* close menu when a link is clicked */
+  if (navLinks.classList.contains("active")) {
+    menuIcon.classList.remove("fa-bars");
+    menuIcon.classList.add("fa-xmark");
+  } else {
+    menuIcon.classList.remove("fa-xmark");
+    menuIcon.classList.add("fa-bars");
+  }
+});
 
 navItems.forEach((link) => {
   link.addEventListener("click", () => {
     navLinks.classList.remove("active");
+
+    menuIcon.classList.remove("fa-xmark");
+    menuIcon.classList.add("fa-bars");
   });
 });
