@@ -49,15 +49,20 @@ document
     observer.observe(el);
   });
 
-const logo = document.querySelector(".logo");
-logo.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
+const navItems = document.querySelectorAll(".nav-links a");
 
-menuToggle.addEventListener("click", function () {
+/* open / close menu */
+
+menuToggle.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
-7;
+
+/* close menu when a link is clicked */
+
+navItems.forEach((link) => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+  });
+});
